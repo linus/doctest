@@ -1,0 +1,21 @@
+{
+  "version": "2",
+  "remote": {
+    "https://deno.land/std@0.141.0/fmt/colors.ts": "30455035d6d728394781c10755351742dd731e3db6771b1843f9b9e490104d37",
+    "https://deno.land/std@0.141.0/testing/_diff.ts": "029a00560b0d534bc0046f1bce4bd36b3b41ada3f2a3178c85686eb2ff5f1413",
+    "https://deno.land/std@0.141.0/testing/_format.ts": "0d8dc79eab15b67cdc532826213bbe05bccfd276ca473a50a3fc7bbfb7260642",
+    "https://deno.land/std@0.141.0/testing/_test_suite.ts": "54390204bbef50d8844d95fbd286cea39a6fe7337b3f1f8e10e7a8167117f81c",
+    "https://deno.land/std@0.141.0/testing/asserts.ts": "0346e6c8bc695d16ff6f975d0bc5f7e7d6dffd4e642d467539a443bcbb9dc4fa",
+    "https://deno.land/std@0.141.0/testing/bdd.ts": "182bb823e09bd75b76063ecf50722870101b7cfadf97a09fa29127279dc21128",
+    "https://deno.land/x/deno_doc@0.51.0/lib/deno_doc.generated.js": "a6f24f439b2299c99760dfcc32adaac64312021c49e273ebf5533a061a920063",
+    "https://deno.land/x/deno_doc@0.51.0/lib/types.d.ts": "8c62f7b5fcb3f0e4dd99e9d3d29f983b481fadb64778488310a336eef39087e7",
+    "https://deno.land/x/deno_doc@0.51.0/mod.ts": "246f1157cc81a68c9db472c35040c95f5571b3af1232b90ddca390393bf34c9f",
+    "https://deno.land/x/deno_graph@0.28.0/lib/deno_graph.generated.js": "f032b9cfc699aedfbecdb7fc66eeb35d1a2261f414d5748dd7df7ad098c5cf45",
+    "https://deno.land/x/deno_graph@0.28.0/lib/loader.ts": "380e37e71d0649eb50176a9786795988fc3c47063a520a54b616d7727b0f8629",
+    "https://deno.land/x/deno_graph@0.28.0/lib/media_type.ts": "222626d524fa2f9ebcc0ec7c7a7d5dfc74cc401cc46790f7c5e0eab0b0787707",
+    "https://deno.land/x/deno_graph@0.28.0/lib/snippets/deno_graph-8dd9cea14a4968dd/src/deno_apis.js": "41192baaa550a5c6a146280fae358cede917ae16ec4e4315be51bef6631ca892",
+    "https://deno.land/x/deno_graph@0.28.0/lib/types.d.ts": "b7571b3df236b09b157522e5e4f72ac6b9437893e3fa74deba9da23bfb126ea8",
+    "https://deno.land/x/deno_graph@0.28.0/mod.ts": "bc5218ef7f122cc696906e3a4c8a6d524c58cc06681370f8cfdb67243389318c",
+    "https://esm.sh/source-map@0.7.3/source-map.d.ts": "b90c59ac4682368a01c83881b814738eb151de8a58f52eb7edadea2bcffb11b9"
+  }
+}

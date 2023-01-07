@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  tests:
+    strategy:
+      matrix:
+        deno-version: [v1.x]
+        os: [ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Set git to use LF
+      run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+    - uses: actions/checkout@v3
+    - name: Use Deno ${{ matrix.deno-version }} on ${{ matrix.os }}
+      uses: denoland/setup-deno@v1.1.1
+      with:
+        deno-version: ${{ matrix.node-version }}
+    - run: deno fmt --check
+    - run: deno lint
+    - run: deno test --allow-net --allow-read
