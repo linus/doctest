@@ -97,7 +97,7 @@ A similar module for Node.js is [@linus/testy](https://github.com/linus/testy).
 
 ISC License
 
-Copyright 2022 Linus Thiel.
+Copyright 2023 Linus Thiel.
 
 Permission to use, copy, modify, and/or distribute this software for any purpose
 with or without fee is hereby granted, provided that the above copyright notice
