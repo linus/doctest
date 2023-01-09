@@ -3,11 +3,12 @@ import { getTests, runExample } from "./lib.js";
 
 /**
  * The main entry point. Call it with the path to the file to test, and run it
- * using Mocha.
+ * using Deno.test().
  *
- * @param {string} file
  * @param {Deno.TestContext} t
- * @example doctest(null, "index.js")
+ * @param {string} file
+ * @example Deno.test("doctest", (t) => doctest(t, "lib.js"));
+ * //=> undefined
  */
 export async function doctest(t, file) {
   const url = new URL(file, import.meta.url);

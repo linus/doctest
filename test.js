@@ -1,10 +1,10 @@
 import { doctest } from "./mod.js";
 
 Deno.test("Doctest", async (t) => {
-  Deno.test({
-    name: "index",
+  await t.step({
+    name: "mod",
     ignore: true,
-    fn: (t) => doctest(t, "index.js"),
+    fn: (t) => doctest(t, "mod.js"),
   });
   await doctest(t, "lib.js");
 });
