@@ -12,13 +12,6 @@ import { getTests, runExample } from "./lib.js";
 export async function doctest(t, file) {
   const url = new URL(file, import.meta.url);
   const nodes = await doc(url.href);
-  const module = await import(url.href);
-
-  for (const symbol in module) {
-    // @ts-ignore TS doesn't like us assigning arbitrary properties to
-    // globalThis, but we don't have a better way yet 🤷
-    globalThis[symbol] = module[symbol];
-  }
 
   await t.step(file, (t) =>
     // @ts-ignore that getTests promises resolve with a boolean
@@ -28,7 +21,9 @@ export async function doctest(t, file) {
           name: functionName,
           fn: (t) =>
             // @ts-ignore that the runExample promises resolve with a boolean
-            Promise.all(examples.map((example) => runExample(t, example))),
+            Promise.all(
+              examples.map((example) => runExample(t, example, url.href)),
+            ),
           sanitizeOps: false,
           sanitizeResources: false,
           sanitizeExit: false,

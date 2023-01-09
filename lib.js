@@ -136,47 +136,37 @@ export function getTests(nodes) {
 /**
  * @param {Deno.TestContext} t
  * @param {Example} param1
+ * @param {string} moduleUrl
  * @returns {Promise<boolean>}
  */
 export function runExample(t, {
   test,
   example,
   expected: result,
-}) {
-  return t.step(example, async () => {
-    const [actual, expected] = await Promise.allSettled([
-      new Promise((resolve, reject) => {
-        try {
-          resolve(eval?.call(null, test));
-        } catch (e) {
-          reject(e);
+}, moduleUrl) {
+  return t.step(example, () =>
+    new Promise((resolve, reject) => {
+      const runner = new Worker(new URL("./runner.js", import.meta.url).href, {
+        type: "module",
+      });
+      runner.onmessage = ({ data: { actual, expected } }) => {
+        if (actual.status === "rejected") {
+          // If the example was rejected, and that's unexpected, then we should
+          // notify someone!
+          if (expected.status !== "rejected") return reject(actual.reason);
+          // Else - Aha! We expected this! Make sure the error caught is the
+          // expected one:
+          assertEquals(actual.reason, expected.reason);
+        } else if (expected.status === "fulfilled") {
+          assertEquals(actual.value, expected.value);
+        } else {
+          // If we expected an error, but received a result, let's throw the
+          // expected error to raise a flag that something is wrong:
+          return reject(expected.reason);
         }
-      }),
-      new Promise((resolve, reject) => {
-        try {
-          const code = result.trim().startsWith("throw ")
-            ? result
-            : `(${result})`;
-          resolve(eval?.call(null, code));
-        } catch (e) {
-          reject(e);
-        }
-      }),
-    ]);
-
-    if (actual.status === "rejected") {
-      // If the example was rejected, and that's unexpected, then we should
-      // notify someone!
-      if (expected.status !== "rejected") throw actual.reason;
-      // Else - Aha! We expected this! Make sure the error caught is the
-      // expected one:
-      assertEquals(actual.reason, expected.reason);
-    } else if (expected.status === "fulfilled") {
-      assertEquals(actual.value, expected.value);
-    } else {
-      // If we expected an error, but received a result, let's throw the
-      // expected error to raise a flag that something is wrong:
-      throw expected.reason;
-    }
-  });
+        runner.terminate();
+        resolve();
+      };
+      runner.postMessage({ moduleUrl, test, result });
+    }));
 }
