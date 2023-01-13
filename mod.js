@@ -1,4 +1,4 @@
-import { doc } from "https://deno.land/x/deno_doc@0.51.0/mod.ts";
+import { doc } from "https://deno.land/x/deno_doc@0.52.0/mod.ts";
 import { getTests, runExample } from "./lib.js";
 
 /**
