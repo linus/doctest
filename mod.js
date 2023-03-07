@@ -33,4 +33,4 @@ export const doctest = (file) => async (t) => {
         })
       ),
     ));
-}
+};
