@@ -1,5 +1,5 @@
-import { doc } from "https://deno.land/x/deno_doc@0.52.0/mod.ts";
-import { resolve, toFileUrl } from "https://deno.land/std@0.149.0/path/mod.ts";
+import { doc } from "https://deno.land/x/deno_doc@0.58.0/mod.ts";
+import { resolve, toFileUrl } from "https://deno.land/std@0.178.0/path/mod.ts";
 import { getTests, runExample } from "./lib.js";
 
 /**
