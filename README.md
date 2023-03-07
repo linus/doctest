@@ -32,8 +32,8 @@ prefixed with the string `//=>` on the beginning of a new line, after the
 example code.
 
 2. To execute the test, add a file which is discovered by `deno test` (e.g. in a
-   `tests/` directory), and call `doctest` with the path to the file to be
-   tested:
+   `tests/` directory), and call `doctest` with the path to the file, relative
+   to the project root, to be tested:
 
 ```js
 import { doctest } from "https://deno.land/x/doctest@{VERSION}/mod.js";

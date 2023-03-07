@@ -1,4 +1,5 @@
 import { doc } from "https://deno.land/x/deno_doc@0.52.0/mod.ts";
+import { resolve, toFileUrl } from "https://deno.land/std@0.149.0/path/mod.ts";
 import { getTests, runExample } from "./lib.js";
 
 /**
@@ -11,13 +12,14 @@ import { getTests, runExample } from "./lib.js";
  * //=> undefined
  */
 export async function doctest(t, file) {
-  const url = new URL(file, import.meta.url);
+  const url = toFileUrl(resolve(Deno.cwd(), file));
   const nodes = await doc(url.href);
 
   await t.step(file, (t) =>
     // @ts-ignore that getTests promises resolve with a boolean
     Promise.all(
       getTests(nodes).map(({ functionName, examples }) =>
+        // @ts-ignore that t.step resolve with a boolean
         t.step({
           name: functionName,
           fn: (t) =>
