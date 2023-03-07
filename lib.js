@@ -1,8 +1,8 @@
-import { assertEquals } from "https://deno.land/std@0.171.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.178.0/testing/asserts.ts";
 
 /**
- * @typedef {import("https://deno.land/x/deno_doc@0.52.0/lib/types.d.ts").DocNode} DocNode
- * @typedef {import("https://deno.land/x/deno_doc@0.52.0/lib/types.d.ts").Location} Location
+ * @typedef {import("https://deno.land/x/deno_doc@0.58.0/lib/types.d.ts").DocNode} DocNode
+ * @typedef {import("https://deno.land/x/deno_doc@0.58.0/lib/types.d.ts").Location} Location
  * @typedef {{
  *   test: string,
  *   example: string,
