@@ -48,7 +48,7 @@ Where {VERSION} should be substituted with the specific version you want to use.
 
 3. Run `deno test` and relax. Your code _and_ your examples are tested!
 
-```
+```bash
 $ deno test
 
   Tests
